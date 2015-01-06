@@ -40,6 +40,7 @@
 #endif
 
 #include "bpgenc.h"
+#include <time.h>
 
 typedef uint16_t PIXEL;
 
@@ -2131,7 +2132,7 @@ struct option long_opts[] = {
 int main(int argc, char **argv)
 {
     const char *infilename, *outfilename;
-    Image *img, *img_alpha;
+    Image *img = NULL, *img_alpha = NULL;
     HEVCEncodeParams p_s, *p = &p_s;
     uint8_t *out_buf, *alpha_buf, *extension_buf;
     int out_buf_len, alpha_buf_len, verbose;
@@ -2144,8 +2145,10 @@ int main(int argc, char **argv)
     int c_h_phase;
     BPGImageFormatEnum format;
     BPGColorSpaceEnum color_space;
-    BPGMetaData *md;
+    BPGMetaData *md = NULL;
     HEVCEncoderEnum encoder_type;
+	clock_t start, finish;
+	double duration;
 
     outfilename = DEFAULT_OUTFILENAME;
     qp = DEFAULT_QP;
@@ -2319,6 +2322,7 @@ int main(int argc, char **argv)
     }
     fclose(f);
 
+	start = clock();
     if (!keep_metadata && md) {
         bpg_md_free(md);
         md = NULL;
@@ -2446,6 +2450,10 @@ int main(int argc, char **argv)
 
         bpg_md_free(md);
     }
+
+	finish = clock();
+	duration = (double)(finish - start) / CLOCKS_PER_SEC;
+	fprintf(stderr, "duration: %.2lfms\n", duration*1000);
     
     f = fopen(outfilename, "wb");
     if (!f) {
