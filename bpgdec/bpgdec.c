@@ -42,6 +42,7 @@
 #endif
 
 #include "libbpg.h"
+#include <time.h>
 
 static void ppm_save(BPGDecoderContext *img, const char *filename)
 {
@@ -294,6 +295,8 @@ int main(int argc, char **argv)
     uint8_t *buf;
     int buf_len, bit_depth, c, show_info;
     const char *outfilename, *filename, *p;
+	clock_t start, finish;
+	double duration;
     
     outfilename = "out.png";
     bit_depth = 8;
@@ -349,12 +352,16 @@ int main(int argc, char **argv)
     
     fclose(f);
 
+	start = clock();
     img = bpg_decoder_open();
 
     if (bpg_decoder_decode(img, buf, buf_len) < 0) {
         fprintf(stderr, "Could not decode image\n");
         exit(1);
     }
+	finish = clock();
+	duration = (double)(finish - start) / CLOCKS_PER_SEC;
+	fprintf(stderr, "duration: %.2lfms\n", duration*1000);
     free(buf);
 
 #ifdef USE_PNG
