@@ -73,3 +73,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+Debug/
+Release/
+ipch/
+*.sdf
+*.opensdf
+*.suo
+*.*~

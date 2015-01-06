@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E8A9DAED-3B33-49D0-841D-24B8168BFB49}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>jctvc</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>libjctvc</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Work\bpg\libbpg-0.9.4\jctvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libmd5\libmd5.c" />
+    <ClCompile Include="program_options_lite.cpp" />
+    <ClCompile Include="TAppEncCfg.cpp" />
+    <ClCompile Include="TAppEncTop.cpp" />
+    <ClCompile Include="TLibCommon\ContextModel.cpp" />
+    <ClCompile Include="TLibCommon\ContextModel3DBuffer.cpp" />
+    <ClCompile Include="TLibCommon\Debug.cpp" />
+    <ClCompile Include="TLibCommon\SEI.cpp" />
+    <ClCompile Include="TLibCommon\TComBitStream.cpp" />
+    <ClCompile Include="TLibCommon\TComCABACTables.cpp" />
+    <ClCompile Include="TLibCommon\TComChromaFormat.cpp" />
+    <ClCompile Include="TLibCommon\TComDataCU.cpp" />
+    <ClCompile Include="TLibCommon\TComInterpolationFilter.cpp" />
+    <ClCompile Include="TLibCommon\TComLoopFilter.cpp" />
+    <ClCompile Include="TLibCommon\TComMotionInfo.cpp" />
+    <ClCompile Include="TLibCommon\TComPattern.cpp" />
+    <ClCompile Include="TLibCommon\TComPic.cpp" />
+    <ClCompile Include="TLibCommon\TComPicSym.cpp" />
+    <ClCompile Include="TLibCommon\TComPicYuv.cpp" />
+    <ClCompile Include="TLibCommon\TComPicYuvMD5.cpp" />
+    <ClCompile Include="TLibCommon\TComPrediction.cpp" />
+    <ClCompile Include="TLibCommon\TComRdCost.cpp" />
+    <ClCompile Include="TLibCommon\TComRdCostWeightPrediction.cpp" />
+    <ClCompile Include="TLibCommon\TComRom.cpp" />
+    <ClCompile Include="TLibCommon\TComSampleAdaptiveOffset.cpp" />
+    <ClCompile Include="TLibCommon\TComSlice.cpp" />
+    <ClCompile Include="TLibCommon\TComTrQuant.cpp" />
+    <ClCompile Include="TLibCommon\TComTU.cpp" />
+    <ClCompile Include="TLibCommon\TComWeightPrediction.cpp" />
+    <ClCompile Include="TLibCommon\TComYuv.cpp" />
+    <ClCompile Include="TLibEncoder\NALwrite.cpp" />
+    <ClCompile Include="TLibEncoder\SEIwrite.cpp" />
+    <ClCompile Include="TLibEncoder\SyntaxElementWriter.cpp" />
+    <ClCompile Include="TLibEncoder\TEncAnalyze.cpp" />
+    <ClCompile Include="TLibEncoder\TEncBinCoderCABAC.cpp" />
+    <ClCompile Include="TLibEncoder\TEncBinCoderCABACCounter.cpp" />
+    <ClCompile Include="TLibEncoder\TEncCavlc.cpp" />
+    <ClCompile Include="TLibEncoder\TEncCu.cpp" />
+    <ClCompile Include="TLibEncoder\TEncEntropy.cpp" />
+    <ClCompile Include="TLibEncoder\TEncGOP.cpp" />
+    <ClCompile Include="TLibEncoder\TEncPic.cpp" />
+    <ClCompile Include="TLibEncoder\TEncPreanalyzer.cpp" />
+    <ClCompile Include="TLibEncoder\TEncRateCtrl.cpp" />
+    <ClCompile Include="TLibEncoder\TEncSampleAdaptiveOffset.cpp" />
+    <ClCompile Include="TLibEncoder\TEncSbac.cpp" />
+    <ClCompile Include="TLibEncoder\TEncSearch.cpp" />
+    <ClCompile Include="TLibEncoder\TEncSlice.cpp" />
+    <ClCompile Include="TLibEncoder\TEncTop.cpp" />
+    <ClCompile Include="TLibEncoder\WeightPredAnalysis.cpp" />
+    <ClCompile Include="TLibVideoIO\TVideoIOYuv.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
